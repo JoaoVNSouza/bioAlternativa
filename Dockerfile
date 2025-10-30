@@ -1,15 +1,20 @@
-# Multi-stage build: build the Vite app and serve with nginx
-FROM node:18-alpine AS builder
+# Etapa 1: build
+FROM node:20-alpine AS builder
+
 WORKDIR /app
-COPY package.json package-lock.json* ./
-RUN npm ci --silent
+COPY package*.json ./
+RUN npm install
 COPY . .
 RUN npm run build
 
-FROM nginx:stable-alpine
-COPY --from=builder /app/dist /usr/share/nginx/html
-# Remove default nginx config and add a simple one that serves index.html for SPA
-RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# Etapa 2: servir o site buildado
+FROM node:20-alpine
+
+WORKDIR /app
+COPY --from=builder /app/dist ./dist
+COPY package*.json ./
+RUN npm install -g serve
+
+EXPOSE 4173
+
+CMD ["serve", "-s", "dist", "-l", "4173"]
