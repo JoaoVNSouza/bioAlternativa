@@ -1,6 +1,9 @@
 import { Instagram, Facebook, Mail } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
+
 import { SocialIcon } from "@/components/SocialIcon";
 import { BrandCard } from "@/components/BrandCard";
+import { LocationMap } from "@/components/LocationMap";
 import storeLogo from "@/assets/store-logo.png";
 
 const Index = () => {
@@ -24,13 +27,29 @@ const Index = () => {
       name: "Tommy Hilfiger",
       description: "Moda premium e estilo de vida do mundo",
       instagramUrl: "https://www.instagram.com/tommyhilfiger/"
-    }
-
+    },
     {
       name: "Lez a Lez",
-      description: "Equilíbrio entre a leveza da praia e a modernidade",
+      description: "Equilíbrio entre a leveza da praia e a modernidade da cidade",
       instagramUrl: "https://www.instagram.com/lezalez/"
+    },
+    {
+      name: "Melissa",
+      description: "Moda, Arte e Design",
+      instagramUrl: "https://www.instagram.com/melissaoficial/"
+    },
+    {
+      name: "Gatos & Atos",
+      description: "Moda com elegância. Sofisticada como você",
+      instagramUrl: "https://www.instagram.com/gatoseatos/"
+    },
+    {
+      name: "Ilicito",
+      description: "Liberdade, estilo e frescor ",
+      instagramUrl: "http://instagram.com/ilicito_oficial/"
     }
+
+
   ];
 
   return (
@@ -50,7 +69,7 @@ const Index = () => {
         {/* Bio */}
         <div className="text-center mb-8 animate-in fade-in duration-700 delay-150">
           <h1 className="text-3xl sm:text-4xl font-light text-foreground mb-3">
-            Fashion Boutique
+            Alternativa Modas
           </h1>
           <p className="text-lg text-muted-foreground max-w-md mx-auto">
             Estilo único, qualidade excepcional. Descubra as melhores marcas de moda em um só lugar.
@@ -61,18 +80,23 @@ const Index = () => {
         <div className="flex justify-center gap-4 mb-12 animate-in fade-in duration-700 delay-300">
           <SocialIcon
             icon={Instagram}
-            href="https://instagram.com/sua_loja"
+            href="https://www.instagram.com/alternativamdas/"
             label="Instagram"
           />
           <SocialIcon
             icon={Facebook}
-            href="https://facebook.com/sua_loja"
+            href="https://www.facebook.com/alternativa.mdas"
             label="Facebook"
           />
           <SocialIcon
             icon={Mail}
-            href="mailto:contato@sualoja.com"
+            href="mailto:cida_alternativamodas@hotmail.com"
             label="Email"
+          />
+          <SocialIcon
+            icon={FaWhatsapp}
+            href="https://api.whatsapp.com/send?phone=5567999775219"
+            label="Telefone"
           />
         </div>
 
@@ -95,10 +119,21 @@ const Index = () => {
           ))}
         </div>
 
+        {/* Mapa de localização */}
+        <div className="mt-12 animate-in fade-in duration-700 delay-700">
+          <h2 className="text-center text-sm uppercase tracking-widest text-muted-foreground mb-6">
+            Onde nos encontrar
+          </h2>
+          <LocationMap 
+            address="Avenida Mato Grosso 1625, Itaquiraí, Mato Grosso Do Sul"
+            className="max-w-xl mx-auto"
+          />
+        </div>
+
         {/* Footer */}
         <div className="text-center mt-16 pt-8 border-t border-border animate-in fade-in duration-700 delay-1000">
           <p className="text-sm text-muted-foreground">
-            © 2024 Fashion Boutique. Todos os direitos reservados.
+            © 2025 Alternativa Modas. Todos os direitos reservados.
           </p>
         </div>
       </div>
