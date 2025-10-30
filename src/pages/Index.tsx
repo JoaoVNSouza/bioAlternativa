@@ -6,24 +6,30 @@ import storeLogo from "@/assets/store-logo.png";
 const Index = () => {
   const brands = [
     {
-      name: "Marca Premium",
-      description: "Coleção exclusiva de alta costura",
-      instagramUrl: "https://instagram.com/marca1"
+      name: "Lança Perfume",
+      description: "Exuberante, Sofisticada e Poderosa",
+      instagramUrl: "https://www.instagram.com/lancaperfume/"
     },
     {
-      name: "Urban Style",
-      description: "Moda urbana e streetwear",
-      instagramUrl: "https://instagram.com/marca2"
+      name: "Arezzo",
+      description: "Conceito, Qualidade e Design contemporâneo",
+      instagramUrl: "https://www.instagram.com/arezzo/"
     },
     {
-      name: "Elegance",
-      description: "Peças elegantes para todas as ocasiões",
-      instagramUrl: "https://instagram.com/marca3"
+      name: "Acostamento",
+      description: "Cnfiança através de looks autênticos para os seus momentos",
+      instagramUrl: "https://www.instagram.com/acostamento/"
     },
     {
-      name: "Casual Chic",
-      description: "Conforto e estilo no dia a dia",
-      instagramUrl: "https://instagram.com/marca4"
+      name: "Tommy Hilfiger",
+      description: "Moda premium e estilo de vida do mundo",
+      instagramUrl: "https://www.instagram.com/tommyhilfiger/"
+    }
+
+    {
+      name: "Lez a Lez",
+      description: "Equilíbrio entre a leveza da praia e a modernidade",
+      instagramUrl: "https://www.instagram.com/lezalez/"
     }
   ];
 
