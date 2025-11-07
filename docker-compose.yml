@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  bio-app:
+    build: .
+    image: bio-app:latest
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      # Substitua SEU_DOMINIO_AQUI pelo seu domínio (ex: exemplo.com)
+      - "traefik.http.routers.bio.rule=Host(`jvsystem.site`)"
+      - "traefik.http.routers.bio.entrypoints=websecure"
+      - "traefik.http.routers.bio.tls=true"
+      - "traefik.http.services.bio.loadbalancer.server.port=80"
+    networks:
+      - web
+
+networks:
+  # A network externa onde o Traefik está conectado. Ajuste para o nome que seu Traefik/EasyPanel usa (ex: traefik-public, web)
+  web:
+    external: true

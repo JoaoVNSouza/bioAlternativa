@@ -39,12 +39,12 @@ pm2 save
 
 # Opção 2: Usando serve (Alternativa mais simples)
 sudo npm install -g serve
-serve -s dist -p 3000
+serve -s dist -p 3500
 
 ## Notas Importantes:
-1. Substitua a porta 3000 por outra se necessário
+1. Substitua a porta 3500 por outra se necessário
 2. Se estiver usando firewall, libere a porta:
-   sudo ufw allow 3000/tcp
+   sudo ufw allow 3500/tcp
 
 ## Para Atualizar o Site:
 1. cd /home/user/chic-bio-link
