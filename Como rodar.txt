@@ -1,3 +1,59 @@
+# Instruções para Deploy na VPS
+
+## 1. Preparar o Ambiente (como root ou usando sudo)
+
+# Atualizar o sistema
+sudo apt update
+sudo apt upgrade -y
+
+# Instalar Node.js e npm
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs
+
+# Verificar instalação
+node --version
+npm --version
+
+## 2. Configurar o Projeto
+
+# Criar diretório para o projeto (substitua user pelo seu usuário)
+cd /home/user
+git clone https://github.com/JoaoVNSouza/chic-bio-link.git
+cd chic-bio-link
+
+# Instalar dependências
 npm install
-npm install react-icons
+
+## 3. Build do Projeto
+
+# Criar build de produção
 npm run build
+
+## 4. Executar o Projeto
+
+# Opção 1: Usando PM2 (Recomendado para produção)
+sudo npm install -g pm2
+pm2 serve dist 3000 --name chic-bio-link
+pm2 startup
+pm2 save
+
+# Opção 2: Usando serve (Alternativa mais simples)
+sudo npm install -g serve
+serve -s dist -p 3000
+
+## Notas Importantes:
+1. Substitua a porta 3000 por outra se necessário
+2. Se estiver usando firewall, libere a porta:
+   sudo ufw allow 3000/tcp
+
+## Para Atualizar o Site:
+1. cd /home/user/chic-bio-link
+2. git pull
+3. npm install
+4. npm run build
+5. pm2 restart chic-bio-link (se usando PM2)
+
+## Problemas Comuns:
+1. Erro de permissão: Use sudo quando necessário
+2. Porta em uso: Mude a porta ou encerre o processo usando a porta
+3. Node não encontrado: Verifique a instalação do Node.js
